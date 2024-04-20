@@ -1,0 +1,13 @@
+{
+  "folders": [
+    {
+      "path": "../Go-Project/broker-service"
+    },
+    {
+      "path": "../Go-Project/front-end"
+    },
+    {
+      "path": "../Go-Project/project"
+    }
+  ]
+}

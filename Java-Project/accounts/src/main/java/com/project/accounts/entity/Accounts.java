@@ -1,0 +1,26 @@
+package com.project.accounts.entity;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
+
+@Entity
+@Getter @Setter @AllArgsConstructor @NoArgsConstructor
+public class Accounts extends BaseEntity {
+
+    @Column(name="customer_id")
+    private Long customerId;
+
+    @Id
+    @Column(name="account_number")
+    private Long accountNumber;
+
+    @Column(name="account_type")
+    private Long accountType;
+
+    @Column(name="branch_address")
+    private String branchAddress;
+}
