@@ -19,14 +19,16 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-@Tag(
-        name = "CRUD REST APIs for Personal Project",
-        description = "CRUD REST APIs to Create, Fetch, Update, Delete "
-)
+
+
 @RestController
 @RequestMapping(path = "/api", produces = {MediaType.APPLICATION_JSON_VALUE})
 @AllArgsConstructor
 @Validated
+@Tag(
+        name = "CRUD REST APIs for Personal Project",
+        description = "CRUD REST APIs to Create, Fetch, Update, Delete "
+)
 public class AccountsController {
 
     private IAccountsService accountsService;
