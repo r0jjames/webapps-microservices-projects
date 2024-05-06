@@ -10,3 +10,8 @@
 ### Step 4: Run Image in the container
 `docker run -d -p 8080:8080 rojcarranza/accounts:v1
 `
+
+### To push to Docker Remote Repository
+`docker image push docker.io/rojcarranza/accounts:v1`
+### To pull from Docker Remote Repository
+`docker pull rojcarranza/accounts:v1`

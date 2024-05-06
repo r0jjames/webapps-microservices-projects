@@ -10,6 +10,13 @@
 
 #### Step 3: Run the image in the container
 `docker run -d -p 8090:8090 rojcarranza/loans:v1`
+
+### To push to Docker Remote Repository
+`docker image push docker.io/rojcarranza/loans:v1`
+
+### To pull from Docker Remote Repository
+`docker pull rojcarranza/loans:v1`
+
 #### Reference:
 https://paketo.io/
 https://buildpacks.io/

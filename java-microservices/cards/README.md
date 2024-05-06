@@ -19,6 +19,13 @@
 `docker run -d -p 9000:9000 rojcarranza/cards:v1
 `
 
+### To push to Docker Remote Repository
+`docker image push docker.io/rojcarranza/cards:v1`
+
+
+### To pull from Docker Remote Repository
+`docker pull rojcarranza/cards:v1`
+
 #### References:
 https://github.com/GoogleContainerTools/jib
 https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin
