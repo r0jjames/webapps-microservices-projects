@@ -1,4 +1,4 @@
-# Instructions to run Microservice in Docker
+# Instructions to run Microservice in Docker using Dockerfile
 ### Step 1: Run maven command to generate jar file from where the pom.xml
 `mvn clean install`
 
