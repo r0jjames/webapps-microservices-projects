@@ -15,3 +15,14 @@
 `docker image push docker.io/rojcarranza/accounts:v1`
 ### To pull from Docker Remote Repository
 `docker pull rojcarranza/accounts:v1`
+
+## Spring Profiles via Command Line Argument
+
+### Option 1: Program Arguments (HIGHEST PRECEDENCE)
+`--spring.profiles.active=prod --build-version=1.1`
+
+### Option 2: JVM Options
+`-Dspring.profiles.active=prod -Dbuild-version=1.2`
+
+### Option 3: Environment variables
+`SPRING_PROFILES_ACTIVE=prod;BUILD_VERSION=1.3`
