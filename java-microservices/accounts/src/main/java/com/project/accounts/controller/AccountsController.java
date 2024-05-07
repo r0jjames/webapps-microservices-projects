@@ -40,7 +40,7 @@ public class AccountsController {
     // To read build.version properties in application yml using @Value
     @Value("${build.version}")
     private String buildVersion;
-
+    // To read build.version properties in application yml using @Environm ent
     @Autowired
     private Environment environment;
 
