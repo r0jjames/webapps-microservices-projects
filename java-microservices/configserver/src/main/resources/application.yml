@@ -5,7 +5,11 @@ spring:
     active: native
   cloud:
     config:
-      native:
-        search-locations: "classpath:/config"
+      server:
+        native:
+  #        reading inside config folder
+  #        search-locations: "classpath:/config"
+  #        reading from a file system location
+          search-locations: "file:///Users//rojcarranza//Documents//config"
 server:
   port: 8071
