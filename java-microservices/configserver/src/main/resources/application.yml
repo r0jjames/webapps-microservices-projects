@@ -20,3 +20,6 @@ spring:
 #          search-locations: "file:///Users//rojcarranza//Documents//config"
 server:
   port: 8071
+
+encrypt:
+  key: 7DAB882D94D634E8F14C328F5225C
