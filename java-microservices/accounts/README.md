@@ -26,3 +26,4 @@
 
 ### Option 3: Environment variables
 `SPRING_PROFILES_ACTIVE=prod;BUILD_VERSION=1.3`
+
