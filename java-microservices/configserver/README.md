@@ -4,7 +4,13 @@ accounts.yml: `http://localhost:8071/accounts/default`
 accounts-qa.yml: `http://localhost:8071/accounts/qa`
 accounts-prod.yml: `http://localhost:8071/accounts/prod`
 
-
+### To run rabbitmq in Docker
+`docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.13-management`
+### To access actuator health
+Dependency: RabbitMq
+`http://localhost:8071/actuator/health`
+`http://localhost:8071/actuator/health/liveness`
+`http://localhost:8071/actuator/health/readiness
 ### To use Spring cloud monitor via Git Webhook in localhost
 ###
 Instructions

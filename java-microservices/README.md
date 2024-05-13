@@ -11,3 +11,7 @@ Port 8090:
 Port 9000: 
     Service: Cards Microservice
     Swagger: http://localhost:9000/swagger-ui/index.html
+
+
+### To run the project
+``
