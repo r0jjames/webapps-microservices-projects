@@ -1,6 +1,10 @@
 server:
   port: 8090
 spring:
+  application:
+    name: loans
+  profiles:
+    active: "prod"
   datasource:
     url: jdbc:mysql://localhost:3307/loansdb
     username: root
@@ -10,3 +14,10 @@ spring:
   sql:
     init:
       mode: always
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

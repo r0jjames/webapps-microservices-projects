@@ -1,9 +1,13 @@
 server:
   port: 9000
 spring:
+  application:
+    name: cards
+  profiles:
+    active: "prod"
   #  MYSQL SETUP
   datasource:
-    url: jdbc:mysql://localhost:3308/loansdb
+    url: jdbc:mysql://localhost:3308/cardsdb
     username: root
     password: root
   jpa:
@@ -11,3 +15,10 @@ spring:
   sql:
     init:
       mode: always
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

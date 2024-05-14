@@ -65,7 +65,7 @@
 				<version>3.4.1</version>
 				<configuration>
 					<to>
-						<image>rojcarranza/${project.artifactId}:v1</image>
+						<image>rojcarranza/${project.artifactId}:v3</image>
 					</to>
 				</configuration>
 			</plugin>
