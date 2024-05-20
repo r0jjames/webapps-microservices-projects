@@ -3,6 +3,7 @@ spring:
   application:
     name: eurekaserver
   config:
+#    eurekaserver.yml
     import: "optional:configserver:http://localhost:8071/"
 # Actuator Configuration
 management:

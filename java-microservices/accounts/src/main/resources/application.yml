@@ -5,6 +5,7 @@ spring:
     name: accounts
   profiles:
     active: "prod"
+#  MySQL - NOTE: Don't forget to run the MySQL in Docker container
   datasource:
     url: jdbc:mysql://localhost:3306/accountsdb
     username: root
@@ -16,12 +17,41 @@ spring:
       mode: always
   config:
     import: "optional:configserver:http://localhost:8071/"
+
+# Actuator Configuration
 management:
   endpoints:
     web:
       exposure:
         include: "*"
-#    Change from H2 to MySQL
+  endpoint:
+    shutdown:
+      enabled: true
+  info:
+    env:
+      enabled: true
+
+endpoints:
+  shutdown:
+    enabled: true
+  
+# Eureka Configuration
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8070/eureka/
+
+info:
+  app:
+    name: "accounts"
+    description: "Personal Project Account Application"
+    version: "1.0.0"
+
+#  H2
 #  datasource:
 #    url: jdbc:h2:mem:testdb
 #    driverClassName: org.h2.Driver
@@ -30,8 +60,6 @@ management:
 #  h2:
 #    console:
 #      enabled: true
-#  MYSQL SETUP
-
 #    database-platform: org.hibernate.dialect.H2Dialect
 #    hibernate:
 #      ddl-auto: update
@@ -43,5 +71,3 @@ management:
 #    port: 5672
 #    username: "guest"
 #    password: "guest"
-
-# Exposed Actuator Endpoints
