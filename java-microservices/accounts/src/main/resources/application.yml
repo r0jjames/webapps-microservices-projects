@@ -34,7 +34,7 @@ management:
 endpoints:
   shutdown:
     enabled: true
-  
+
 # Eureka Configuration
 eureka:
   instance:
