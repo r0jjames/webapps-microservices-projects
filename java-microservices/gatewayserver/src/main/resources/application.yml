@@ -9,7 +9,7 @@ spring:
     gateway:
       discovery:
         locator:
-          enabled: true
+          enabled: false
 #         /ACCOUNTS/api/create to /accounts/api/create
           lowerCaseServiceId: true
 # Actuator Configuration
