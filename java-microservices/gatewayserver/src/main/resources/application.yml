@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: "gatewayserver"
+# To connect to config server
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+# Spring Cloud Gateway Configuration
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+#         /ACCOUNTS/api/create to /accounts/api/create
+          lowerCaseServiceId: true
+# Actuator Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    gateway:
+      enabled: true
+  info:
+    env:
+      enabled: true
+# Info for Eureka Server
+info:
+  app:
+    name: "gatewayserver"
+    description: "Personal Project Gateway Server Application"
+    version: "1.0.0"

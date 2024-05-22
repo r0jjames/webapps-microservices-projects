@@ -1,5 +1,9 @@
-# Java-Spring-Microservices
-
+### Run the service/project in order
+1. Config Server
+2. Eureka Server
+3. Microservices - Accounts, Loans and Cards
+4. Gateway Server
+### Java-Spring-Microservices
 Port 8080: 
     Service: Accounts Microservice
     URL: http://localhost:8080/swagger-ui/index.html
@@ -35,12 +39,12 @@ Port: 8070:
 ## External Resources:
 
 ### To run MYSQL using docker
-AccountsDB: 
-`docker run -d -p 3306:3306 --name accountsdb -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=accountsdb mysql`
-LoansDB: 
-`docker run -d -p 3307:3306 --name loansdb -e MYSQL_ROOT_PASSWORD=root  -e MYSQL_DATABASE=loansdb mysql`
-CardsDB:
-`docker run -d -p 3308:3306 --name cardsdb -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=cardsdb mysql`
+
+`
+docker run -d -p 3306:3306 --name accountsdb -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=accountsdb mysql
+docker run -d -p 3307:3306 --name loansdb -e MYSQL_ROOT_PASSWORD=root  -e MYSQL_DATABASE=loansdb mysql
+docker run -d -p 3308:3306 --name cardsdb -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=cardsdb mysql
+`
 
 ## Actuator
 ### To Shutdown and deregister from Eureka Server
@@ -52,8 +56,11 @@ Cards: http://localhost:9000/actuator/shutdown
 ## Docker
 ### To push image to docker hub
 To create image: `mvn compile jib:dockerBuild `
-`docker image push docker.io/rojcarranza/accounts:v4`
-`docker image push docker.io/rojcarranza/loans:v4`
-`docker image push docker.io/rojcarranza/cards:v4`
-`docker image push docker.io/rojcarranza/configserver:v4`
-`docker image push docker.io/rojcarranza/eurekaserver:v1   `
+`
+docker image push docker.io/rojcarranza/accounts:v4
+docker image push docker.io/rojcarranza/loans:v4
+docker image push docker.io/rojcarranza/cards:v4
+docker image push docker.io/rojcarranza/configserver:v4
+docker image push docker.io/rojcarranza/eurekaserver:v1
+docker image push docker.io/rojcarranza/gatewayserver:v1
+`

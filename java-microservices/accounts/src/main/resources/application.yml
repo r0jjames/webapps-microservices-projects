@@ -2,7 +2,7 @@ server:
   port: 8080
 spring:
   application:
-    name: accounts
+    name: "accounts"
   profiles:
     active: "prod"
 #  MySQL - NOTE: Don't forget to run the MySQL in Docker container

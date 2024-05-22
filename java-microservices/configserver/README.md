@@ -1,3 +1,6 @@
+### Github Project Config
+`https://github.com/r0jjames/project-config`
+
 ### To access the config server properties
 ACCOUNTS <br />
 accounts.yml: `http://localhost:8071/accounts/default`
