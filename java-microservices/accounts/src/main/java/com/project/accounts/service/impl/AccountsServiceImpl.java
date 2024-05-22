@@ -1,6 +1,6 @@
 package com.project.accounts.service.impl;
 
-import com.project.accounts.constants.AccountConstants;
+import com.project.accounts.constants.AccountsConstants;
 import com.project.accounts.dto.AccountsDto;
 import com.project.accounts.dto.CustomerDto;
 import com.project.accounts.entity.Accounts;
@@ -45,8 +45,8 @@ public class AccountsServiceImpl implements IAccountsService {
         newAccount.setCustomerId(customer.getCustomerId());
         long randomAccNumber = 1000000000L + new Random().nextInt(900000000);
         newAccount.setAccountNumber(randomAccNumber);
-        newAccount.setAccountType(AccountConstants.SAVINGS);
-        newAccount.setBranchAddress(AccountConstants.ADDRESS);
+        newAccount.setAccountType(AccountsConstants.SAVINGS);
+        newAccount.setBranchAddress(AccountsConstants.ADDRESS);
         newAccount.setCreatedAt(LocalDateTime.now());
         newAccount.setCreatedBy("Anonymous");
         return newAccount;

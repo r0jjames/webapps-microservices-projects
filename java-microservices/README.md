@@ -47,3 +47,13 @@ CardsDB:
 Accounts: http://localhost:8080/actuator/shutdown
 Loans: http://localhost:8090/actuator/shutdown
 Cards: http://localhost:9000/actuator/shutdown
+
+
+## Docker
+### To push image to docker hub
+To create image: `mvn compile jib:dockerBuild `
+`docker image push docker.io/rojcarranza/accounts:v4`
+`docker image push docker.io/rojcarranza/loans:v4`
+`docker image push docker.io/rojcarranza/cards:v4`
+`docker image push docker.io/rojcarranza/configserver:v4`
+`docker image push docker.io/rojcarranza/eurekaserver:v1   `

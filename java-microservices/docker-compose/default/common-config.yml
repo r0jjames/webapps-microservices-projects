@@ -2,6 +2,7 @@ services:
   network-deploy-service:
     networks:
       - personal_bank
+
   microservice-db-config:
     extends:
       service: network-deploy-service
@@ -14,6 +15,7 @@ services:
       start_period: 10s
     environment:
       MYSQL_ROOT_PASSWORD: root
+
   microservice-base-config:
     extends:
       service: network-deploy-service
@@ -24,9 +26,21 @@ services:
 #    environment:
 #      SPRING_RABBITMQ_HOST: "rabbit"
 
+  microservice-eureka-config:
+    extends:
+      service: microservice-base-config
+    depends_on:
+      eurekaserver:
+        condition: service_healthy
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
+
   microservice-configserver-config:
     extends:
       service: microservice-base-config
+    depends_on:
+      configserver:
+        condition: service_healthy
     environment:
       SPRING_PROFILES_ACTIVE: default
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
