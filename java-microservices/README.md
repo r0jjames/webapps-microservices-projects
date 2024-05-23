@@ -64,3 +64,10 @@ docker image push docker.io/rojcarranza/configserver:v4
 docker image push docker.io/rojcarranza/eurekaserver:v1
 docker image push docker.io/rojcarranza/gatewayserver:v1
 `
+
+## Circuit Breaker
+### To check the status
+`http://localhost:8072/actuator/circuitbreakers`
+
+### To check the events per name
+`http://localhost:8072/actuator/circuitbreakerevents?name=accountsCircuitBreaker`
