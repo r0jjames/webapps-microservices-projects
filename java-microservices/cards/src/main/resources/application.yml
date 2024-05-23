@@ -5,7 +5,7 @@ spring:
     name: cards
   profiles:
     active: "prod"
-  #  MYSQL SETUP
+#  MYSQL SETUP
   datasource:
     url: jdbc:mysql://localhost:3308/cardsdb
     username: root
@@ -17,22 +17,27 @@ spring:
       mode: always
   config:
     import: "optional:configserver:http://localhost:8071/"
+
 # Actuator Configuration
 management:
   endpoints:
     web:
       exposure:
         include: "*"
+  health:
+    readiness-state:
+      enabled: true
+    liveness-state:
+      enabled: true
   endpoint:
     shutdown:
       enabled: true
+    health:
+      probes:
+        enabled: true
   info:
     env:
       enabled: true
-
-endpoints:
-  shutdown:
-    enabled: true
 
 # Eureka Configuration
 eureka:
