@@ -58,6 +58,7 @@ info:
     name: "accounts"
     description: "Personal Project Account Application"
     version: "1.0.0"
+# Logging
 logging:
   level:
     com:

@@ -30,3 +30,10 @@ info:
     name: "gatewayserver"
     description: "Personal Project Gateway Server Application"
     version: "1.0.0"
+
+# Logging
+logging:
+  level:
+    com:
+      project:
+        gatewayserver: DEBUG

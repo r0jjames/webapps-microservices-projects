@@ -49,3 +49,9 @@ info:
     name: "accounts"
     description: "Personal Project Cards Application"
     version: "1.0.0"
+# Logging
+logging:
+  level:
+    com:
+      project:
+        cards: DEBUG

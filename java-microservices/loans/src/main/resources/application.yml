@@ -46,6 +46,12 @@ eureka:
 
 info:
   app:
-    name: "accounts"
+    name: "loans"
     description: "Personal Project Loans Application"
     version: "1.0.0"
+# Logging
+logging:
+  level:
+    com:
+      project:
+        loans: DEBUG
