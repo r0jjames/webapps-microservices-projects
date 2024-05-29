@@ -12,6 +12,9 @@ spring:
           enabled: false
 #         /ACCOUNTS/api/create to /accounts/api/create
           lowerCaseServiceId: true
+      httpclient:
+        connect-timeout: 1000
+        response-timeout: 5s
 # Actuator Configuration
 management:
   endpoints:

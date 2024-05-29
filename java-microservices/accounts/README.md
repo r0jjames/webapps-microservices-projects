@@ -27,3 +27,7 @@
 ### Option 3: Environment variables
 `SPRING_PROFILES_ACTIVE=prod;BUILD_VERSION=1.3`
 
+## Circuit Breaker
+To check the status `http://localhost:8080/actuator/circuitbreakers`
+To check the state of Circuit Breaker`http://localhost:8080/actuator/circuitbreakerevents`
+

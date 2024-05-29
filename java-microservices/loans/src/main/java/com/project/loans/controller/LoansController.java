@@ -2,6 +2,7 @@ package com.project.loans.controller;
 
 import com.project.loans.constants.LoansConstants;
 import com.project.loans.dto.ErrorResponseDto;
+import com.project.loans.dto.LoansContactInfoDto;
 import com.project.loans.dto.LoansDto;
 import com.project.loans.dto.ResponseDto;
 import com.project.loans.service.ILoansService;
@@ -16,6 +17,7 @@ import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -28,11 +30,17 @@ import org.springframework.web.bind.annotation.*;
 )
 @RestController
 @RequestMapping(path = "/api", produces = {MediaType.APPLICATION_JSON_VALUE})
-@AllArgsConstructor
 @Validated
 public class LoansController {
     private static final Logger logger = LoggerFactory.getLogger(LoansController.class);
+
     private ILoansService iLoansService;
+
+    public LoansController(ILoansService iLoansService) {
+        this.iLoansService = iLoansService;
+    }
+    @Autowired
+    private LoansContactInfoDto loansContactInfoDto;
 
     @Operation(
             summary = "Create Loan REST API",
@@ -162,6 +170,13 @@ public class LoansController {
                     .status(HttpStatus.EXPECTATION_FAILED)
                     .body(new ResponseDto(LoansConstants.STATUS_417, LoansConstants.MESSAGE_417_DELETE));
         }
+    }
+
+    @GetMapping("/contact-info")
+    public ResponseEntity<LoansContactInfoDto> getContactInfo() {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(loansContactInfoDto);
     }
 
 }
