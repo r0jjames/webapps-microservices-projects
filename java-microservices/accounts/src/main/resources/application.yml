@@ -17,7 +17,19 @@ spring:
       mode: always
   config:
     import: "optional:configserver:http://localhost:8071/"
-
+#Enable Feign Client for Circuit Breaker
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
+# Circuit Breaker Configuration
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      slidingWindowSize: 10
+      permittedNumberOfCallsInHalfOpenState: 2
+      failureRateThreshold: 50
+      waitDurationInOpenState: 10000
 # Actuator Configuration
 management:
   endpoints:
