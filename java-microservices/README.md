@@ -71,3 +71,8 @@ docker image push docker.io/rojcarranza/gatewayserver:v1
 
 ### To check the events per name
 `http://localhost:8072/actuator/circuitbreakerevents?name=accountsCircuitBreaker`
+
+## Rate Limiter
+### To test the rate limiter using Apache Bench
+#### -n = "number of request", -c = "concurrency, -v ="verbose"
+`ab -n 10 -c 2 -v 3 http://localhost:8072/rudzbank/cards/api/build-info`
