@@ -76,3 +76,10 @@ docker image push docker.io/rojcarranza/gatewayserver:v1
 ### To test the rate limiter using Apache Bench
 #### -n = "number of request", -c = "concurrency, -v ="verbose"
 `ab -n 10 -c 2 -v 3 http://localhost:8072/rudzbank/cards/api/build-info`
+
+## Micrometer
+### To check the available metrics and prometheus
+`http://localhost:8080/actuator/metrics`
+`http://localhost:8080/actuator/prometheus`
+### To access specific metrics
+`http://localhost:8080/actuator/metrics/process.uptime`

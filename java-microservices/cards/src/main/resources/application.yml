@@ -40,6 +40,10 @@ management:
   info:
     env:
       enabled: true
+  # To categorize the metrics
+  metrics:
+    tags:
+      application: ${spring.application.name}
 
 endpoints:
   shutdown:

@@ -44,3 +44,7 @@ management:
     health:
       probes:
         enabled: true
+  # To categorize the metrics
+  metrics:
+    tags:
+      application: ${spring.application.name}
