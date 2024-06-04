@@ -5,7 +5,7 @@ accounts:
   message: "Welcome to Production Bank accounts related local APIs "
   contactDetails:
     name: "John Doe - Developer"
-    email: "john@eazybank.com"
+    email: "john@rudzbank.com"
   onCallSupport:
     - (111) 555-1234
     - (111) 523-1345

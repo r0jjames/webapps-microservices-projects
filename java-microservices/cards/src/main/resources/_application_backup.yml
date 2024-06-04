@@ -1,0 +1,62 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: cards
+  profiles:
+    active: "prod"
+#  MYSQL SETUP
+  datasource:
+    url: jdbc:mysql://localhost:3308/cardsdb
+    username: root
+    password: root
+  jpa:
+    show-sql: true
+  sql:
+    init:
+      mode: always
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+
+# Actuator Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    readiness-state:
+      enabled: true
+    liveness-state:
+      enabled: true
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      probes:
+        enabled: true
+  info:
+    env:
+      enabled: true
+
+# Eureka Configuration
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8070/eureka/
+
+info:
+  app:
+    name: "accounts"
+    description: "Personal Project Cards Application"
+    version: "1.0.0"
+# Logging
+logging:
+  level:
+    com:
+      project:
+        cards: DEBUG

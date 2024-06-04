@@ -5,7 +5,7 @@ accounts:
   message: "Welcome to Default accounts related local APIs "
   contactDetails:
     name: "John Doe - Developer"
-    email: "john@eazybank.com"
+    email: "john@rudzbank.com"
   onCallSupport:
     - (333) 555-1234
     - (333) 523-1345

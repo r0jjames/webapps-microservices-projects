@@ -2,23 +2,25 @@ server:
   port: 9000
 spring:
   application:
-    name: cards
+    name: "cards"
   profiles:
     active: "prod"
-#  MYSQL SETUP
   datasource:
-    url: jdbc:mysql://localhost:3308/cardsdb
-    username: root
-    password: root
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: ''
+  h2:
+    console:
+      enabled: true
   jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
     show-sql: true
-  sql:
-    init:
-      mode: always
   config:
     import: "optional:configserver:http://localhost:8071/"
 
-# Actuator Configuration
 management:
   endpoints:
     web:
@@ -39,7 +41,10 @@ management:
     env:
       enabled: true
 
-# Eureka Configuration
+endpoints:
+  shutdown:
+    enabled: true
+
 eureka:
   instance:
     preferIpAddress: true
@@ -51,10 +56,10 @@ eureka:
 
 info:
   app:
-    name: "accounts"
-    description: "Personal Project Cards Application"
+    name: "cards"
+    description: "Personal Bank Cards Application"
     version: "1.0.0"
-# Logging
+
 logging:
   level:
     com:

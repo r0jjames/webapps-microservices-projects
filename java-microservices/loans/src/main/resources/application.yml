@@ -2,22 +2,25 @@ server:
   port: 8090
 spring:
   application:
-    name: loans
+    name: "loans"
   profiles:
     active: "prod"
   datasource:
-    url: jdbc:mysql://localhost:3307/loansdb
-    username: root
-    password: root
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: ''
+  h2:
+    console:
+      enabled: true
   jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
     show-sql: true
-  sql:
-    init:
-      mode: always
   config:
     import: "optional:configserver:http://localhost:8071/"
 
-# Actuator Configuration
 management:
   endpoints:
     web:
@@ -38,7 +41,10 @@ management:
     env:
       enabled: true
 
-# Eureka Configuration
+endpoints:
+  shutdown:
+    enabled: true
+
 eureka:
   instance:
     preferIpAddress: true
@@ -51,9 +57,9 @@ eureka:
 info:
   app:
     name: "loans"
-    description: "Personal Project Loans Application"
+    description: "RudzBank Loans Application"
     version: "1.0.0"
-# Logging
+
 logging:
   level:
     com:
