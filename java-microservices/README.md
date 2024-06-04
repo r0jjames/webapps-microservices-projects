@@ -4,7 +4,14 @@
 3. Microservices - Accounts, Loans and Cards
 4. Gateway Server
 ### Java-Spring-Microservices - Run inorder
-
+Port: 9090
+    Service: Prometheus
+    URL(s):
+    - http://localhost:9090/
+Port: 3000
+    Service: Grafana
+    URL(s):
+    - http://localhost:3030
 Port: 8071:
     Service: Config Server
     URL(s):
@@ -38,10 +45,7 @@ Port 9000:
 Port: 8072:
     Service: Gateway Server
     URL(s): http://localhost:8072/
-Port: 9090
-    Service: Prometheus
-    URL(s): 
-        - http://localhost:9090/
+
 ## External Resources:
 
 ### To run MYSQL using docker
