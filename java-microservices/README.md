@@ -3,18 +3,7 @@
 2. Eureka Server
 3. Microservices - Accounts, Loans and Cards
 4. Gateway Server
-### Java-Spring-Microservices
-Port 8080: 
-    Service: Accounts Microservice
-    URL: http://localhost:8080/swagger-ui/index.html
-
-Port 8090:
-    Service: Loans Microservice
-    URL: http://localhost:8090/swagger-ui/index.html
-
-Port 9000: 
-    Service: Cards Microservice
-    URL: http://localhost:9000/swagger-ui/index.html
+### Java-Spring-Microservices - Run inorder
 
 Port: 8071:
     Service: Config Server
@@ -35,7 +24,24 @@ Port: 8070:
     URL(s):
         - http://localhost:8070/
         - http://localhost:8070/eureka/apps
+Port 8080:
+    Service: Accounts Microservice
+    URL: http://localhost:8080/swagger-ui/index.html
 
+Port 8090:
+    Service: Loans Microservice
+    URL: http://localhost:8090/swagger-ui/index.html
+
+Port 9000:
+    Service: Cards Microservice
+    URL: http://localhost:9000/swagger-ui/index.html
+Port: 8072:
+    Service: Gateway Server
+    URL(s): http://localhost:8072/
+Port: 9090
+    Service: Prometheus
+    URL(s): 
+        - http://localhost:9090/
 ## External Resources:
 
 ### To run MYSQL using docker
@@ -79,7 +85,12 @@ docker image push docker.io/rojcarranza/gatewayserver:v1
 
 ## Micrometer
 ### To check the available metrics and prometheus
-`http://localhost:8080/actuator/metrics`
-`http://localhost:8080/actuator/prometheus`
+
+accounts: `http://localhost:8080/actuator/metrics`
+accounts: `http://localhost:8080/actuator/prometheus`
 ### To access specific metrics
 `http://localhost:8080/actuator/metrics/process.uptime`
+
+## Prometheus
+### To see running container
+`http://localhost:9090/targets?search=`
