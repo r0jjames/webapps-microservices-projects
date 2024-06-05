@@ -41,7 +41,7 @@ services:
       service: network-deploy-service
 # CONFIG
   configserver:
-    image: "rojcarranza/configserver:v6"
+    image: "rojcarranza/configserver:v7"
     container_name: configserver-ms
     ports:
       - "8071:8071"
@@ -60,7 +60,7 @@ services:
 
   #Eureka - Service Discovery
   eurekaserver:
-    image: "rojcarranza/eurekaserver:v6"
+    image: "rojcarranza/eurekaserver:v7"
     container_name: eurekaserver-ms
     ports:
       - "8070:8070"
@@ -78,7 +78,7 @@ services:
 
 # MICROSERVICES
   accounts:
-    image: "rojcarranza/accounts:v6"
+    image: "rojcarranza/accounts:v7"
     container_name: accounts-ms
     ports:
       - "8080:8080"
@@ -105,7 +105,7 @@ services:
       service: microservice-eureka-config
 
   loans:
-    image: "rojcarranza/loans:v6"
+    image: "rojcarranza/loans:v7"
     container_name: loans-ms
     ports:
       - "8090:8090"
@@ -130,7 +130,7 @@ services:
       service: microservice-eureka-config
 
   cards:
-    image: "rojcarranza/cards:v6"
+    image: "rojcarranza/cards:v7"
     container_name: cards-ms
     ports:
       - "9000:9000"
@@ -156,7 +156,7 @@ services:
 
   #  Spring Cloud - API Gateway Server
   gatewayserver:
-    image: "rojcarranza/gatewayserver:v6"
+    image: "rojcarranza/gatewayserver:v7"
     container_name: gatewayserver-ms
     ports:
       - "8072:8072"

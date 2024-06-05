@@ -69,3 +69,6 @@ logging:
     com:
       project:
         cards: DEBUG
+  # Open Telemetry will follow this pattern
+  pattern:
+    level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"

@@ -3,7 +3,6 @@ spring:
   application:
     name: eurekaserver
   config:
-#    eurekaserver.yml
     import: "optional:configserver:http://localhost:8071/"
 # Actuator Configuration
 management:
@@ -24,3 +23,8 @@ management:
   metrics:
     tags:
       application: ${spring.application.name}
+# Logging
+logging:
+  # Open Telemetry will follow this pattern
+  pattern:
+    level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"

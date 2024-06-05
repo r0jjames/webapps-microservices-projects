@@ -98,3 +98,13 @@ accounts: `http://localhost:8080/actuator/prometheus`
 ## Prometheus
 ### To see running container
 `http://localhost:9090/targets?search=`
+
+## Open Telemetry
+### To setup the telemetry
+Note: Export the JAVA_TOOL_OPTIONS
+`https://opentelemetry.io/docs/zero-code/java/agent/`
+## Technologies
+Spring Cloud Gateway - For API Gateway
+Netflix Eureka - Service Discovery
+Observability and Monitoring - Micrometer / Actuator -> Prometheus <- Grafana
+Distributed Tracing - Open Telemetry -> Tempo <- Grafana

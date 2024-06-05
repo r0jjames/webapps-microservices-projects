@@ -90,6 +90,20 @@ services:
     extends:
       file: common-config.yml
       service: network-deploy-service
+
+  tempo:
+    image: grafana/tempo:2.4.2
+    container_name: tempo
+    command: -config.file /etc/tempo-config.yml
+    ports:
+      - "3110:3100"
+      - "4317:4317"
+    volumes:
+      - ../observability/tempo/tempo.yml:/etc/tempo-config.yml
+    extends:
+      file: common-config.yml
+      service: network-deploy-service
+
   grafana:
     image: grafana/grafana:latest
     environment:
@@ -201,16 +215,16 @@ services:
       file: common-config.yml
       service: network-deploy-service
 
-
   flog:
     image: mingrammer/flog
     command: -f json -d 200ms -l
     extends:
       file: common-config.yml
       service: network-deploy-service
+
   # CONFIG
   configserver:
-    image: "rojcarranza/configserver:v6"
+    image: "rojcarranza/configserver:v7"
     container_name: configserver-ms
     ports:
       - "8071:8071"
@@ -226,10 +240,12 @@ services:
     extends:
       file: common-config.yml
       service: microservice-base-config
+    environment:
+      OTEL_SERVICE_NAME: "configserver"
 
   #Eureka - Service Discovery
   eurekaserver:
-    image: "rojcarranza/eurekaserver:v6"
+    image: "rojcarranza/eurekaserver:v7"
     container_name: eurekaserver-ms
     ports:
       - "8070:8070"
@@ -247,10 +263,11 @@ services:
       service: microservice-configserver-config
     environment:
       SPRING_APPLICATION_NAME: "eurekaserver"
+      OTEL_SERVICE_NAME: "eurekaserver"
 
   # MICROSERVICES
   accounts:
-    image: "rojcarranza/accounts:v6"
+    image: "rojcarranza/accounts:v7"
     container_name: accounts-ms
     ports:
       - "8080:8080"
@@ -271,12 +288,13 @@ services:
           memory: 700m
     environment:
       SPRING_APPLICATION_NAME: "accounts"
+      OTEL_SERVICE_NAME: "accounts"
     extends:
       file: common-config.yml
       service: microservice-eureka-config
 
   loans:
-    image: "rojcarranza/loans:v6"
+    image: "rojcarranza/loans:v7"
     container_name: loans-ms
     ports:
       - "8090:8090"
@@ -297,12 +315,13 @@ services:
           memory: 700m
     environment:
       SPRING_APPLICATION_NAME: "loans"
+      OTEL_SERVICE_NAME: "loans"
     extends:
       file: common-config.yml
       service: microservice-eureka-config
 
   cards:
-    image: "rojcarranza/cards:v6"
+    image: "rojcarranza/cards:v7"
     container_name: cards-ms
     ports:
       - "9000:9000"
@@ -323,13 +342,14 @@ services:
           memory: 700m
     environment:
       SPRING_APPLICATION_NAME: "cards"
+      OTEL_SERVICE_NAME: "cards"
     extends:
       file: common-config.yml
       service: microservice-eureka-config
 
   #  Spring Cloud - API Gateway Server
   gatewayserver:
-    image: "rojcarranza/gatewayserver:v6"
+    image: "rojcarranza/gatewayserver:v7"
     container_name: gatewayserver-ms
     ports:
       - "8072:8072"
@@ -344,6 +364,7 @@ services:
     #        condition: service_healthy
     environment:
       SPRING_APPLICATION_NAME: "gatewayserver"
+      OTEL_SERVICE_NAME: "gatewayserver"
     extends:
       file: common-config.yml
       service: microservice-eureka-config
