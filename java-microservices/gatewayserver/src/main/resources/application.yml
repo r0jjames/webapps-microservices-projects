@@ -1,6 +1,12 @@
 spring:
   application:
     name: "gatewayserver"
+  # Security (Authentication / Authorization)
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: "http://localhost:7080/realms/master/protocol/openid-connect/certs"
 # To connect to config server
   config:
     import: "optional:configserver:http://localhost:8071/"
@@ -10,7 +16,7 @@ spring:
       discovery:
         locator:
           enabled: false
-#         /ACCOUNTS/api/create to /accounts/api/create
+          #/ACCOUNTS/api/create to /accounts/api/create
           lowerCaseServiceId: true
       httpclient:
         connect-timeout: 1000

@@ -45,11 +45,17 @@ Port 9000:
 Port: 8072:
     Service: Gateway Server
     URL(s): http://localhost:8072/
+Port: http://localhost:7080/
+    Service: Keycloak
+    URL(s): http://localhost:7080/
 
 ## External Resources:
+### To run Keycloak
+
+Run docker image: 
+`docker run -d -p 7080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:24.0.5 start-dev`
 
 ### To run MYSQL using docker
-
 `
 docker run -d -p 3306:3306 --name accountsdb -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=accountsdb mysql
 docker run -d -p 3307:3306 --name loansdb -e MYSQL_ROOT_PASSWORD=root  -e MYSQL_DATABASE=loansdb mysql
@@ -104,7 +110,19 @@ accounts: `http://localhost:8080/actuator/prometheus`
 Note: Export the JAVA_TOOL_OPTIONS
 `https://opentelemetry.io/docs/zero-code/java/agent/`
 ## Technologies
-Spring Cloud Gateway - For API Gateway
-Netflix Eureka - Service Discovery
-Observability and Monitoring - Micrometer / Actuator -> Prometheus <- Grafana
-Distributed Tracing - Open Telemetry -> Tempo <- Grafana
+Programming Language: Java
+Framework: Spring boot
+Containerization: Docker
+API Gateway: Spring Cloud Gateway
+Config: Spring Cloud Server
+Service Discovery: Spring Cloud Netflix Eureka Server
+Observability and Monitoring:  Micrometer / Actuator -> Prometheus <- Grafana
+Distributed Tracing: Open Telemetry -> Tempo <- Grafana
+Security: 
+- Authentication: Keycloack https://www.keycloak.org/getting-started/getting-started-docker
+- Authorization: 
+Security
+
+## Design Patterns
+- Spring MVC
+- 
