@@ -5,4 +5,17 @@ spring:
     name: "message"
   cloud:
     function:
-      definition: email|sms # will trigger both email and sms endpoint simultaneously
+      definition: email|sms # MessageFunctions.email MessageFunctions.sms
+    stream:
+      bindings:
+        emailsms-in-0:
+          destination: send-communication # Subscribed to send-communication Queue
+          group: ${spring.application.name}
+        emailsms-out-0:
+          destination: communication-sent # Produce to communication-sent Queue
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    connection-timeout: 10s

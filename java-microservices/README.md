@@ -50,17 +50,7 @@ Port: http://localhost:7080/
     URL(s): http://localhost:7080/
 
 ## External Resources:
-### To run Keycloak
 
-Run docker image: 
-`docker run -d -p 7080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:24.0.5 start-dev`
-
-### To run MYSQL using docker
-`
-docker run -d -p 3306:3306 --name accountsdb -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=accountsdb mysql
-docker run -d -p 3307:3306 --name loansdb -e MYSQL_ROOT_PASSWORD=root  -e MYSQL_DATABASE=loansdb mysql
-docker run -d -p 3308:3306 --name cardsdb -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=cardsdb mysql
-`
 
 ## Actuator
 ### To Shutdown and deregister from Eureka Server
@@ -69,7 +59,20 @@ Loans: http://localhost:8090/actuator/shutdown
 Cards: http://localhost:9000/actuator/shutdown
 
 
-## Docker
+## Docker Installation
+
+### To run RabbitMQ using Docker'
+`docker run -d -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.13-management`
+
+### To run Keycloak using Docker
+`docker run -d -p 7080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:24.0.5 start-dev`
+
+### To run MYSQL using Docker
+`
+docker run -d -p 3306:3306 --name accountsdb -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=accountsdb mysql
+docker run -d -p 3307:3306 --name loansdb -e MYSQL_ROOT_PASSWORD=root  -e MYSQL_DATABASE=loansdb mysql
+docker run -d -p 3308:3306 --name cardsdb -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=cardsdb mysql
+`
 ### To push image to docker hub
 To create image: `mvn compile jib:dockerBuild `
 `
@@ -79,7 +82,7 @@ docker image push docker.io/rojcarranza/cards:v4
 docker image push docker.io/rojcarranza/configserver:v4
 docker image push docker.io/rojcarranza/eurekaserver:v1
 docker image push docker.io/rojcarranza/gatewayserver:v1
-`
+
 
 ## Circuit Breaker
 ### To check the status
