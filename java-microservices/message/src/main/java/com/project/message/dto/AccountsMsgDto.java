@@ -1,4 +1,4 @@
 package com.project.message.dto;
 
-public record AccountsMsgDto(Long accountNumber, String name, String email, String mobileNumberta) {
+public record AccountsMsgDto(Long accountNumber, String name, String email, String mobileNumber) {
 }

@@ -23,9 +23,15 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-stream</artifactId>
 		</dependency>
+		<!-- Rabbit MQ
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-stream-binder-rabbit</artifactId>
+		</dependency> -->
+		<!-- Kafka -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-stream-binder-kafka</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -82,7 +88,7 @@
 				<version>3.4.1</version>
 				<configuration>
 					<to>
-						<image>rojcarranza/${project.artifactId}:v7</image>
+						<image>rojcarranza/${project.artifactId}:v8</image>
 					</to>
 				</configuration>
 			</plugin>
