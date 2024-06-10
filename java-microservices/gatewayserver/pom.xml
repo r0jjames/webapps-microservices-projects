@@ -107,7 +107,7 @@
 				<version>3.4.1</version>
 				<configuration>
 					<to>
-						<image>rojcarranza/${project.artifactId}:v8</image>
+						<image>rojcarranza/${project.artifactId}:v7</image>
 					</to>
 				</configuration>
 			</plugin>
