@@ -133,7 +133,7 @@
 				<version>3.4.1</version>
 				<configuration>
 					<to>
-						<image>rojcarranza/${project.artifactId}:v7</image>
+						<image>rojcarranza/${project.artifactId}:v1</image>
 					</to>
 				</configuration>
 			</plugin>
