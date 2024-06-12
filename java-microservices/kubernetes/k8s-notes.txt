@@ -14,7 +14,8 @@ Admin Token:
 eyJhbGciOiJSUzI1NiIsImtpZCI6ImEzTzRBbVpMbTlIOUJsT2V1cGhXakJtTHRMTFJWR2NYMkJhenBIRnh6bDAifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJhZG1pbi11c2VyIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6ImFkbWluLXVzZXIiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiI5ZGNjMjhjZS00YmM2LTQ1YmUtODJiNS0xMTcxNGEyZWQ1NDkiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZXJuZXRlcy1kYXNoYm9hcmQ6YWRtaW4tdXNlciJ9.nSnXsxBczEOOoFX7YXMea7zVD6uBsmnIk4TEXALrhnrXNw8k0YD_cWz4ZTJakK_HTQ_DZuqfdNZU-LUcjVsbUDKCmBCjOm3AYXzc2Kg0_pNbYaP-o6M3BfqLlcPe8n8ZXnK9XzEU4JXdTd01Wto_g9SstCrYHyXteu3Ynvd-bL_O1su0y5Ls6s_GPTkaYxuVUFn4GEnEY_yY84bKCFtFSw3T7L3VTta2sLSXFGLv4qs4ujeBydNSpFJdlMxxPmqi6FdUHkEkPZ3zIKylh0XKNNYnDsT3qwEiI29LSECkfEAGTNHBudgTkWu2hnbPd7b9FdWWsTRJEdaynPe1LyaXbg
 
 
-Useful commands:
+Useful commands (kubectl):
+
 Check the events: kubectl get events --sort-by=.metadata.creationTimestamp
 Run UI Dashboard: kubectl proxy
 Check pods: kubectl get pods
@@ -25,3 +26,9 @@ Inspect deployments: kubectl describe deployment gatewayserver-deployment
 Automatic rollout without downtime: kubectl set image deployment gatewayserver-deployment gatewayserver=eazybytes/gatewayserver:s11 --record
 Check the rollout history of deployment: kubectl rollout history deployment gatewayserver-deployment
 Rollback: kubectl rollout undo deployment gatewayserver-deployment --to-revision=1
+
+Useful commands (helm):
+Create chart: helm create rudzbank-common
+Compile and Build charts (note: cd to service directory): helm dependencies build
+Rendering and inspecting Helm chart templates: helm template .
+

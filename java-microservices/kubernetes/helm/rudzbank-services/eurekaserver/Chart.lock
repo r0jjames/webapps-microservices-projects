@@ -1,0 +1,6 @@
+dependencies:
+- name: rudzbank-common
+  repository: file://../../rudzbank-common
+  version: 0.1.0
+digest: sha256:699275c2f8e3930637ad25752a7f3f578150b0e4141785b4f03da6553d1c8ed1
+generated: "2024-06-12T21:58:02.814327+02:00"
