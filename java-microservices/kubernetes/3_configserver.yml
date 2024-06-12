@@ -1,12 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:  configserver-deployment
-  namespace: default
+  name: configserver-deployment
   labels:
-    app:  configserver
+    app: configserver
 spec:
-  replicas: 1 
+  replicas: 1
   selector:
     matchLabels:
       app: configserver
@@ -16,10 +15,10 @@ spec:
         app: configserver
     spec:
       containers:
-      - name:  configserver
-        image:  rojcarranza/configserver:v1
+      - name: configserver
+        image: eazybytes/configserver:s12
         ports:
-          - containerPort: 8071
+        - containerPort: 8071
 ---
 apiVersion: v1
 kind: Service
