@@ -28,12 +28,15 @@ Check the rollout history of deployment: kubectl rollout history deployment gate
 Rollback: kubectl rollout undo deployment gatewayserver-deployment --to-revision=1
 
 Useful commands (helm):
-Create chart: helm create rudzbank-common
+Create blank chart: helm create rudzbank-common
 Compile and Build charts (note: cd to service directory): helm dependencies build
 Install the helm chart from bitnami (https://github.com/bitnami/charts): helm install keycloak keycloak-folder
 Rendering and inspecting Helm chart templates: helm template .
 To see all helm installed: helm ls
 To install the microservice inside environment folder: helm install rudzbank-ms dev-env
+To deploy new release changes: helm upgrade rudzbank-ms dev-env
+To see history of changes: helm history rudzbank-ms
+To rollback of changes:  helm rollback rudzbank-ms 1
 
 
 
