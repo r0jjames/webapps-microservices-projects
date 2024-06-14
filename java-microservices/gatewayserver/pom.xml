@@ -41,9 +41,13 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-gateway</artifactId>
 		</dependency>
+		<!--		<dependency>-->
+		<!--			<groupId>org.springframework.cloud</groupId>-->
+		<!--			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
+		<!--		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<artifactId>spring-cloud-starter-kubernetes-discoveryclient</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -107,7 +111,7 @@
 				<version>3.4.1</version>
 				<configuration>
 					<to>
-						<image>rojcarranza/${project.artifactId}:v1</image>
+						<image>rojcarranza/${project.artifactId}:v2</image>
 					</to>
 				</configuration>
 			</plugin>
