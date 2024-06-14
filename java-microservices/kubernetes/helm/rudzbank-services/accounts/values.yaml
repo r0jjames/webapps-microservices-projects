@@ -9,8 +9,9 @@ appName: accounts
 replicaCount: 1
 
 image:
-  repository: eazybytes/accounts
-  tag: s14
+  # repository: eazybytes/accounts
+  repository: rojjames/accounts
+  tag: v2
 
 containerPort: 8080
 
@@ -22,7 +23,7 @@ service:
 appname_enabled: true
 profile_enabled: true
 config_enabled: true
-eureka_enabled: true
+discovery_enabled: true
 resouceserver_enabled: false
 otel_enabled: true
 kafka_enabled: true

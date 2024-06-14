@@ -5,7 +5,7 @@ metadata:
 data:
   SPRING_PROFILES_ACTIVE: prod
   SPRING_CONFIG_IMPORT: "configserver:http://configserver:8071/"
-  EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://eurekaserver:8070/eureka/"
+  EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://spring-cloud-kubernetes-discoveryserver:80/"
   CONFIGSERVER_APPLICATION_NAME: configserver
   EUREKA_APPLICATION_NAME: eurekaserver
   ACCOUNTS_APPLICATION_NAME: accounts

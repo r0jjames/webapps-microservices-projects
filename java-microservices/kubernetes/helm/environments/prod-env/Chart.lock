@@ -5,9 +5,6 @@ dependencies:
 - name: configserver
   repository: file://../../rudzbank-services/configserver
   version: 0.1.0
-- name: eurekaserver
-  repository: file://../../rudzbank-services/eurekaserver
-  version: 0.1.0
 - name: accounts
   repository: file://../../rudzbank-services/accounts
   version: 0.1.0
@@ -23,5 +20,5 @@ dependencies:
 - name: message
   repository: file://../../rudzbank-services/message
   version: 0.1.0
-digest: sha256:df71560eb7b63f37193211a809283d37e92bf5ae562eea4b6d828834b92ef16c
-generated: "2024-06-12T22:28:00.82895+02:00"
+digest: sha256:7190bed170ac59ff7d67fcf1f6af26f2f50400158c1e09beafd6e235fd310f9a
+generated: "2024-06-14T10:36:51.614815+02:00"

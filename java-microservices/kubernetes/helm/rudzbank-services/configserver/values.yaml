@@ -9,9 +9,10 @@ appName: configserver
 replicaCount: 1
 
 image:
-  repository: eazybytes/configserver
-  tag: s14
-
+  # repository: eazybytes/configserver
+  # tag: s14
+  repository: rojjames/configserver
+  tag: v2
 containerPort: 8071
 
 service:
@@ -22,7 +23,7 @@ service:
 appname_enabled: true
 profile_enabled: false
 config_enabled: false
-eureka_enabled: false
+discovery_enabled: false
 resouceserver_enabled: false
 otel_enabled: true
 kafka_enabled: false
