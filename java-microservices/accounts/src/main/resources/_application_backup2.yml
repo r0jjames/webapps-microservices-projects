@@ -21,9 +21,6 @@ spring:
   config:
     import: "optional:configserver:http://localhost:8071/"
   cloud:
-    kubernetes: # Spring Cloud Kubernetes Service Discovery
-      discovery:
-        all-namespaces: true
     openfeign:
       circuitbreaker:
         enabled: true
@@ -40,6 +37,12 @@ spring:
         binder:
           brokers:
             - localhost:9092
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: guest
+#    connection-timeout: 10s
 
 management:
   endpoints:
@@ -60,14 +63,23 @@ management:
   info:
     env:
       enabled: true
-
-  metrics: # To categorize the metrics for monitoring
+  # To categorize the metrics
+  metrics:
     tags:
       application: ${spring.application.name}
 
 endpoints:
   shutdown:
     enabled: true
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8070/eureka/
 
 info:
   app:
@@ -81,7 +93,8 @@ logging:
     com:
       project:
         accounts: DEBUG
-  pattern: # Open Telemetry will follow this pattern
+  # Open Telemetry will follow this pattern
+  pattern:
     level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"
 
 resilience4j.circuitbreaker:
